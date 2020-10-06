@@ -10,13 +10,14 @@ class App extends React.Component {
     return (
       <Formik>
         {(values, errors, handleChange, handleSubmit) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <input
               type="email"
               name="email"
               placeholder="enter email"
               value={values.email}
               onChange={handleChange}
+              noValidate
             />
             <p className="error">{errors.email}</p>
             <input
@@ -26,8 +27,20 @@ class App extends React.Component {
               placeholder="enter password"
               value={values.password}
               onChange={handleChange}
+              noValidate
             />
             <p className="error">{errors.password}</p>
+            <input
+              className="display"
+              type="text"
+              name="username"
+              placeholder="enter username"
+              value={values.username}
+              onChange={handleChange}
+              noValidate
+            />
+
+            <p className="error">{errors.username}</p>
             <button type="submit">Submit</button>
           </form>
         )}
